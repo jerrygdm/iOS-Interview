@@ -5,11 +5,11 @@
 ## BASE
 
 ### Quali sono i principali stati di un'applicazione iOS?
-Non-running — L'applicazione non è in esecuzione
-Inactive — L'applicazione è in esecuzione in foreground ma non sta ricevendo eventi. Un'app iOS può essere messa nello stato "inactive" dal sistema operativo quando ad esempio si riceve una telefonata o un SMS.
-Active — L'applicazione è in esecuzione e sta ricevendo eventi.
-Background — L'applicazione è in esecuzione in background e sta eseguendo del codice.
-Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.
+* Non-running — L'applicazione non è in esecuzione. 
+* Inactive — L'applicazione è in esecuzione in foreground ma non sta ricevendo eventi. Un'app iOS può essere messa nello stato "inactive" dal sistema operativo quando ad esempio si riceve una telefonata o un SMS.  
+* Active — L'applicazione è in esecuzione e sta ricevendo eventi.  
+* Background — L'applicazione è in esecuzione in background e sta eseguendo del codice.  
+* Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.  
 
 ### Quali sono le differenze tra frame e bounds?
 Il bounds di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0)
