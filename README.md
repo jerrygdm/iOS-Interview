@@ -55,7 +55,6 @@ Dispatch.main.async {
 }
 
 ### E1. Cosa stampa il seguente codice?
-*********************************
 ```swift
 class Person {
     var name: String
@@ -65,7 +64,7 @@ class Person {
 let myFriend = Person(name: "Peter", age: 24)
 print(myFriend.name)
 ```
-*********************************
+
 - [ ] ""
 - [ ] "Peter"
 - [ ] "myFriend"
@@ -73,7 +72,6 @@ print(myFriend.name)
 - [ ] Non viene stampato nulla
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
-
 *********************************
 ##### Riposta corretta: Questo codice non compila
 ##### Spiegazione 
@@ -81,7 +79,6 @@ Le Struct supportano la "memberwise initialization" mentre le classi non ancora 
 
 
 ### E2. Cosa produce il seguente codice?
-*********************************
  ```swift
 var i = 2
 
@@ -90,12 +87,11 @@ do {
     i *= 2
 } while (i < 128)
 ```
-*********************************
+
 - [ ] 2, 4, 8, 16, 32, 64
 - [ ] 2, 4, 8, 16, 32, 64, 128
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
-
 *********************************
 ##### Risposta corretta: Questo codice non compila.
 ##### Spiegazione
@@ -103,7 +99,6 @@ La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
 
 
 ### E3. Cosa stampa il seguente codice?
-*********************************
 ```swift
 let names = ["Amy", "Rory"]
 
@@ -112,46 +107,42 @@ for name in names {
     print("HELLO, \(name)!")
 }
 ```
-*********************************
+
 - [ ] "HELLO, AMY!"
 - [ ] "HELLO, AMY!", "HELLO, RORY!"
 - [ ] "HELLO, RORY!"
 - [ ] Non viene stampato nulla
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
-  
 *********************************
 Risposta corretta: Questo codice non compila.
 Spiegazione: name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
 
 ### E4. Quanti elementi conterrà l'array names alla fine dell'esecuzione del codice?
-*********************************
 ```swift
 let names = [String]()
 names.append("Amy")
 names.append("Clara")
 names.append("Rory")
 ```
-*********************************
+
 - [ ] 0
 - [ ] 1
 - [ ] 2
 - [ ] 3
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
- 
 *********************************
  Risposta corretta: Questo codice non compila
  Spiegazione: L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
  
 ### E5. Cosa conterrà la costante third alla fine dell'esecuzione del codice?
-*********************************
  ```swift
 let first = ["Sulaco", "Nostromo"]
 let second = ["X-Wing", "TIE Fighter"]
 let third = first + second
 ```
-*********************************
+
 - [ ] "Sulaco", "Nostromo"
 - [ ] "Sulaco", "Nostromo", "Sulaco", "Nostromo"
 - [ ] "Sulaco", "Nostromo", "X-Wing", "TIE Fighter"
@@ -164,7 +155,6 @@ Risposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
 Spiegazione: Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
 
 ### E6. Cosa stampa il seguente codice?
-*********************************
  ```swift
  let i = 3
 
@@ -177,7 +167,7 @@ case 3:
     print("Number was 3")
 }
 ```
-*********************************
+
 - [ ] Prints "Number was 2"
 - [ ] Prints "Number was 3"
 - [ ] Questo codice compila ma va in crash
@@ -187,13 +177,11 @@ Risposta corretta: Questo codice non compila
 Spiegazione: Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
 
 ### E7. Cosa stampa il seguente codice?
-*********************************
 ```swift
 let bigNumber = Int.max
 let biggerNumber = bigNumber + 1
 print(biggerNumber)
 ```
-*********************************
 - [ ] -9223372036854775808
 - [ ] 0
 - [ ] 9223372036854775807
@@ -201,7 +189,7 @@ print(biggerNumber)
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Rispota corretta: Questo codice compila ma va in crash.
+Rispota corretta: Questo codice compila ma va in crash.
 Spiegazione: L'aggiunta di 1 al massimo numero intero rappresentabile solleva un overflow.
 
  
