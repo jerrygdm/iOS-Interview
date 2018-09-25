@@ -74,7 +74,7 @@ print(myFriend.name)
 - [ ] Questo codice non compila
 *********************************
 ##### Riposta corretta: Questo codice non compila
-##### Spiegazione 
+##### Spiegazione  
 Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 
 
@@ -94,7 +94,7 @@ do {
 - [ ] Questo codice non compila
 *********************************
 ##### Risposta corretta: Questo codice non compila.
-##### Spiegazione
+##### Spiegazione  
 La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
 
 
@@ -115,8 +115,9 @@ for name in names {
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: Questo codice non compila.
-Spiegazione: name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
+##### Riposta corretta: Questo codice non compila.
+##### Spiegazione  
+name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
 
 ### E4. Quanti elementi conterrà l'array names alla fine dell'esecuzione del codice?
 ```swift
@@ -133,8 +134,9 @@ names.append("Rory")
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Risposta corretta: Questo codice non compila
- Spiegazione: L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
+##### Riposta corretta: Questo codice non compila
+##### Spiegazione  
+L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
  
 ### E5. Cosa conterrà la costante third alla fine dell'esecuzione del codice?
  ```swift
@@ -151,8 +153,9 @@ let third = first + second
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
-Spiegazione: Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
+##### Riposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
+##### Spiegazione 
+Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
 
 ### E6. Cosa stampa il seguente codice?
  ```swift
@@ -173,8 +176,9 @@ case 3:
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: Questo codice non compila
-Spiegazione: Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
+##### Riposta corretta: Questo codice non compila
+##### Spiegazione 
+Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
 
 ### E7. Cosa stampa il seguente codice?
 ```swift
@@ -189,8 +193,9 @@ print(biggerNumber)
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Rispota corretta: Questo codice compila ma va in crash.
-Spiegazione: L'aggiunta di 1 al massimo numero intero rappresentabile solleva un overflow.
+##### Riposta corretta: Questo codice compila ma va in crash.
+##### Spiegazione. 
+L'aggiunta di 1 al massimo numero intero rappresentabile solleva un overflow.
 
  
 
@@ -223,13 +228,12 @@ Every time used with let
 By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view.
 
 ### E1. Che output viene prodotto dal codice seguente?
-**************
 ```swift
 let names = ["Pilot": "Wash", "Doctor": "Simon"]
 let doctor = names["doctor"] ?? "Bones"
 print(doctor)
 ```
-*********************************
+
 - [ ] ""
 - [ ] "Bones"
 - [ ] "Doctor"
@@ -239,11 +243,11 @@ print(doctor)
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Risposta corretta: "Bones".
-Spiegazione: Viene fatto accesso all'elemento "doctor" nel dizionario, chiave mai inserita: i dizionari sono case sentitive. Ciò comporta come risultato nil che scatena l'esecuzione del "nil coalescing operator" che valorizzerà la variabile doctor a "Bones".
+##### Riposta corretta: "Bones"
+##### Spiegazione  
+Viene fatto accesso all'elemento "doctor" nel dizionario, chiave mai inserita: i dizionari sono case sentitive. Ciò comporta come risultato nil che scatena l'esecuzione del "nil coalescing operator" che valorizzerà la variabile doctor a "Bones".
 
 ### E2. Che cosa stampa il codice seguente?
-*********************************
  ```swift
 let userLoggedIn: Bool? = false
 
@@ -253,19 +257,19 @@ if !userLoggedIn! {
     print("Message two")
 }
 ```
-*********************************
+
 - [ ] "Message one"
 - [ ] "Message two"
 - [ ] Non viene stampato nulla
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Risposta corretta: "Message one".
-Spiegazione: L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
+##### Riposta corretta: "Message one"
+##### Spiegazione  
+L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
 
 ### E3. Che cosa stampa il codice seguente?
-*********************************
- ```swift
+```swift
  let point = (556, 0)
 switch point {
 case (let x, 0):
@@ -276,7 +280,7 @@ case let (x, y):
     print("X was \(x) and Y was \(y)")
 }
 ```
-*********************************
+
 - [ ] X was 556
 - [ ] X was 556 and Y was 0
 - [ ] Y was 0
@@ -284,8 +288,9 @@ case let (x, y):
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Risposta corretta: X was 556.
-Spiegazione: Swift esegue il primo blocco che viene "matchato" in uno switch. In questo caso point è una tupla con il valore (556, 0) quindi (let x, 0) risulta soddisfatto e il messaggio relativo stampato.
+##### Riposta corretta: X was 556
+##### Spiegazione  
+Swift esegue il primo blocco che viene "matchato" in uno switch. In questo caso point è una tupla con il valore (556, 0) quindi (let x, 0) risulta soddisfatto e il messaggio relativo stampato.
 
 
 
@@ -305,12 +310,10 @@ There is a more known framework called RxSwift. It contains RxCocoa, which are r
 
 
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
-****************
-
 ```swift
 let numbers = [1, 2, 3].flatMap { [$0, $0] }
 ```
-*********************************
+
 - [ ] [1, 1, 2, 2, 3, 3]
 - [ ] [1, 2, 3]
 - [ ] [[1, 1], [1, 2], [1, 3]]
@@ -320,11 +323,11 @@ let numbers = [1, 2, 3].flatMap { [$0, $0] }
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
- Risposta corretta: [1, 1, 2, 2, 3, 3].
-Spiegazione: l'invocazione di map comporta in un loop di tutti gli elementi nell'array e risulta in una creazione di un nuovo array che contiene ogni numero duplicato. Ad esempio il primo numero (1) viene convertito in [1, 1] e così via. In questo caso viene utilizzato flatMap che appiattisce il tutto in un singolo array ovvero [[1, 1]] diventa [1, 1] (non array di array).
+##### Riposta corretta: [1, 1, 2, 2, 3, 3]
+##### Spiegazione  
+l'invocazione di map comporta in un loop di tutti gli elementi nell'array e risulta in una creazione di un nuovo array che contiene ogni numero duplicato. Ad esempio il primo numero (1) viene convertito in [1, 1] e così via. In questo caso viene utilizzato flatMap che appiattisce il tutto in un singolo array ovvero [[1, 1]] diventa [1, 1] (non array di array).
 
 ### E2. Quale dei due loop for stampa più linee?
-****************
 ```swift
 import Foundation
 let data: [Any?] = ["Bill", nil, 69, "Ted"]
@@ -337,23 +340,25 @@ for case let .some(datum) in data where datum is String {
     print(datum)
 }
 ```
-*********************************
+
 - [ ] Entrambi i loop stampano lo stesso numero di linee
 - [ ] Il primo loop stampa più linee del secondo
 - [ ] Il secondo loop stampa più linee del primo
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: Il primo loop stampa più linee del secondo
-Explanation: There is a very subtle difference between the two loops, and it's triggered by the data type of the array: this is an array of Any? not an array of strings. The first loop will attempt to typecast its items as String?, which means the loop element must either be a string or nil – that's true of three items. The second loop, however, begins by unwrapping the optional, so it will either be Any or String, at which point our where clause will work. So, the second loop prints two lines.
+##### Riposta corretta: Il primo loop stampa più linee del secondo
+##### Spiegazione  
+C'è solo una piccola differenza tra i due loop ed è causato dal tipo di dato dell'array: il primo è un array di Any? non un array di stringhe.  
+Il primo loop tenta di fare il typecast sui suoi elementi come String? ovvero l'elemento può essere sia una stringa sia nil (ciò risulta vero per 3 elementi).  
+Il secondo loop inizia facendo l'unwrap degli opzionali quindi i suoi elementi possono essere Any o String ma è posta una condizione nella clausola where dunque il loop stamperà solamente due linee dato che solo due elementi sono di tipo String.
 
 ### E3. Cosa stampa il seguente codice?
-****************
 ```swift
 let string: String = String(describing: String.self)
 print(string)
 ```
-*********************************
+
 - [ ] ""
 - [ ] "String"
 - [ ] Swift.String
@@ -362,18 +367,20 @@ print(string)
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: "String"
-Explanation: Among the many constructors for strings is one that lets you pass in a class to have the string set to the name of that class. That is, String(describing: String.self) means "create a string out of the name of the String class." This is equivalent to the NSStringFromClass() function that Objective-C developers often use.
+##### Riposta corretta: "String"
+##### Spiegazione  
+Tra i vari costruttori per le stringhe ce n'è uno che permtte di passare una classe per ottenere la stringa del nome di quella classe.  
+String(describing: String.self) significa "produci una stringa contenente il nome della classe String".  
+Questa è equivalente al metodo NSStringFromClass() che si utilizzava in Objective-c
 
 ### E4. Quando questo codice viene eseguito cosa conterrà la costante example2?
-**********************
 ```swift
 var names = [String]()
 names.append("Amy")
 let example1 = names.removeLast()
 let example2 = names.removeLast()
 ```
-*********************************
+
 - [ ] ""
 - [ ] "Amy"
 - [ ] nil
@@ -381,11 +388,12 @@ let example2 = names.removeLast()
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: Questo codice compila ma va in crash
-Spiegazione: The removeLast() method returns the same data type as the array contains, which in this code is a String. As the only string in the array was already removed, the second call will throw an exception and crash
+##### Riposta corretta: Questo codice compila ma va in crash
+##### Spiegazione  
+Il metodo removeLast() ritorna lo stesso tipo di dato che è contenuto nell'array che, nel caso in oggetto è String. Siccome l'unica stringa nell'array è già stata rimossa, la seconda chiamata lancia un'eccezione e manda in crash l'applicaizone
+
 
 ### E5. Nel codice seguente quale sarà il tipo di dato di testVar?
-*****************
   
 In the code below, what data type is testVar?
 ```swift
@@ -395,18 +403,17 @@ for (key, value) in names.enumerated() {
     let testVar = value
 }
 ```
-*********************************
+
 - [ ] (String, String)
 - [ ] String
 - [ ] [String, String]
 - [ ] Questo codice non compila
 *********************************
-
-Risposta corretta: (String, String).
-Explanation: If you iterate over the names dictionary without using enumerated(), key would be Pilot then Doctor, and value would be Wash then Simon. However, this code uses enumerated(), which means that key will be the integer position of the item in the loop, and value will be a (String, String) tuple containing the key and the value for this item in the dictionary: ("Pilot", "Wash") then ("Doctor", "Simon").
+##### Riposta corretta: (String, String)
+##### Spiegazione  
+Se si iterasse sulle chiavi di un dizionario senza utilizzare enumerated() le chiavi sarebbero Pilot e Doctor e i valori corrispondenti Wash e Simon. Utilizzando enumerated() ritornerà come key l'indice della posizione dell'elemento nel loop e il valore sarà di tipo (String, String).
 
 ### E6. Che output produrrà iò seguente codice?
-***************
  ```swift
 let status = "shiny"
 
@@ -414,7 +421,7 @@ for (position, character) in status.reversed().enumerated() where position % 2 =
     print("\(position): \(character)")
 }
 ```
-*********************************
+
 - [ ] 0: s
 - [ ] 0: s, 2: i, 4: y
 - [ ] 0: y
@@ -425,12 +432,12 @@ for (position, character) in status.reversed().enumerated() where position % 2 =
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 *********************************
-Risposta corretta: 0: y, 2: i, 4: s.
-Explanation: There are three things to understand about this code. First, reversed() is called on the string before enumerated(), which means the string is reversed but the enumeration (the positions) are not. Second, enumerated() will return each character in the reversed string, along with its position. Third, that position is passed into a where clause, and only even-numbered character indices will be printed.
+##### Riposta corretta: 0: y, 2: i, 4: s
+##### Spiegazione  
+Ci sono 3 cose da capire in questo codice:  
+* reversed() è chiamato su una stringa prima di enumerated(), ciò significa che la stringa viene invertita ma non l'enumerazione
+* enumerated() ritornerà ogni carattere nella stringa invertita con la sua posizione
+* la posizione è passata nella clausola where e verranno stampati solo i caratteri di posizione pari
  
  
  
- 
- 
- 
-
