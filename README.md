@@ -68,7 +68,7 @@ print(myFriend.name)
 - [ ]  "Peter"
 - [ ] "myFriend"
 - [ ] nil
-- [ ] Nulla viene stampato
+- [ ] Non viene stampato nulla
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 
@@ -86,12 +86,12 @@ do {
 } while (i < 128)
  ```
  -----------
- 
- 2, 4, 8, 16, 32, 64
- 2, 4, 8, 16, 32, 64, 128
- Nothing will be output
- This code will compile but crash
- This code will not compile
+
+- [ ] 2, 4, 8, 16, 32, 64
+- [ ] 2, 4, 8, 16, 32, 64, 128
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
 
 +++++
 Risposta corretta: Questo codice non compila.
@@ -109,12 +109,12 @@ for name in names {
 ```
 -----------------------
 
- "HELLO, AMY!"
- "HELLO, AMY!", "HELLO, RORY!"
- "HELLO, RORY!"
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] "HELLO, AMY!"
+- [ ] "HELLO, AMY!", "HELLO, RORY!"
+- [ ] "HELLO, RORY!"
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
   
  +++++
 Risposta corretta: Questo codice non compila.
@@ -128,12 +128,12 @@ names.append("Rory")
 ```
 ------------
 
- 0
- 1
- 2
- 3
- This code will compile but crash
- This code will not compile
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  ++++
  Risposta corretta: Questo codice non compila
@@ -146,13 +146,13 @@ let third = first + second
 ```
 ------------
 
- "Sulaco", "Nostromo"
- "Sulaco", "Nostromo", "Sulaco", "Nostromo"
- "Sulaco", "Nostromo", "X-Wing", "TIE Fighter"
- "X-Wing", "TIE Fighter", "Sulaco", "Nostromo"
- It will be an empty array
- This code will compile but crash
- This code will not compile
+- [ ] "Sulaco", "Nostromo"
+- [ ] "Sulaco", "Nostromo", "Sulaco", "Nostromo"
+- [ ] "Sulaco", "Nostromo", "X-Wing", "TIE Fighter"
+- [ ] "X-Wing", "TIE Fighter", "Sulaco", "Nostromo"
+- [ ] Il risultato è un array vuoto
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  +++++
  Risposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
 Spiegazione: Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
@@ -171,10 +171,10 @@ case 3:
 ```
 -----------
 
- Prints "Number was 2"
- Prints "Number was 3"
- This code will compile but crash
- This code will not compile
+- [ ] Prints "Number was 2"
+- [ ] Prints "Number was 3"
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
 
 ++++++++
 Risposta corretta: Questo codice non compila
@@ -186,12 +186,12 @@ let biggerNumber = bigNumber + 1
 print(biggerNumber)
 ```
 -------------
- -9223372036854775808
- 0
- 9223372036854775807
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] -9223372036854775808
+- [ ] 0
+- [ ] 9223372036854775807
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
 
  ++++++++
  Rispota corretta: Questo codice compila ma va in crash.
@@ -245,15 +245,14 @@ let doctor = names["doctor"] ?? "Bones"
 print(doctor)
 ```
 ----------
- ""
- "Bones"
- "Doctor"
- "Simon"
- "Wash"
- nil
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] ""
+- [ ] "Bones"
+- [ ] "Doctor"
+- [ ] nil
+- [ ] "Wash"
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  +++++++
  Risposta corretta: "Bones".
@@ -269,11 +268,11 @@ if !userLoggedIn! {
 }
 ```
 ---------------
- "Message one"
- "Message two"
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] "Message one"
+- [ ] "Message two"
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  ++++++++
  Risposta corretta: "Message one".
@@ -291,13 +290,12 @@ case let (x, y):
 }
 ```
 ------------
- X was 556
- X was 556 and Y was 0
- Y was 0
- Nothing will be output
- This code will compile but crash
- This code will not compile
- Skip this question
+- [ ] X was 556
+- [ ] X was 556 and Y was 0
+- [ ] Y was 0
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  +++++++
  Risposta corretta: X was 556.
@@ -325,14 +323,14 @@ Come ultimo punto Collection eredita da Sequence.
 let numbers = [1, 2, 3].flatMap { [$0, $0] }
 ```
 ----------------
- [1, 1, 2, 2, 3, 3]
- [1, 2, 3]
- [[1, 1], [1, 2], [1, 3]]
- [[1, 1], [2, 1], [3, 1]]
- [[1, 1], [2, 2], [3, 3]]
- [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
- This code will compile but crash
- This code will not compile
+- [ ] [1, 1, 2, 2, 3, 3]
+- [ ] [1, 2, 3]
+- [ ] [[1, 1], [1, 2], [1, 3]]
+- [ ] [[1, 1], [2, 1], [3, 1]]
+- [ ] [[1, 1], [2, 2], [3, 3]]
+- [ ] [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  +++++++++
  Risposta corretta: [1, 1, 2, 2, 3, 3].
@@ -352,11 +350,11 @@ for case let .some(datum) in data where datum is String {
 }
 ```
 
- Both loops print the same number of lines
- The first loop prints more lines than the second
- The second loop prints more lines than the first
- This code will compile but crash
- This code will not compile
+- [ ] Entrambi i loop stampano lo stesso numero di linee
+- [ ] Il primo loop stampa più linee del secondo
+- [ ] Il secondo loop stampa più linee del primo
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
 
  +++++++++
  Risposta corretta: Il primo loop stampa più linee del secondo
@@ -366,14 +364,13 @@ Explanation: There is a very subtle difference between the two loops, and it's t
 let string: String = String(describing: String.self)
 print(string)
 ```
-
- ""
- "String"
- Swift.String
- nil
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] ""
+- [ ] "String"
+- [ ] Swift.String
+- [ ] nil
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  
  +++++++++++
  Risposta corretta: "String"
@@ -388,12 +385,12 @@ let example1 = names.removeLast()
 let example2 = names.removeLast()
 ```
 
- ""
- "Amy"
- nil
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] ""
+- [ ] "Amy"
+- [ ] nil
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  ++++++++++
 Risposta corretta: Questo codice compila ma va in crash
 Spiegazione: The removeLast() method returns the same data type as the array contains, which in this code is a String. As the only string in the array was already removed, the second call will throw an exception and crash
@@ -408,14 +405,13 @@ for (key, value) in names.enumerated() {
     let testVar = value
 }
 ```
+- [ ] (String, String)
+- [ ] String
+- [ ] [String, String]
+- [ ] Questo codice non compila
++++++++++++
 
- (String, String)
- String
- [String, String]
- This code will not compile
- +++++++++++
- Correct answer: (String, String).
-
+Risposta corretta: (String, String).
 Explanation: If you iterate over the names dictionary without using enumerated(), key would be Pilot then Doctor, and value would be Wash then Simon. However, this code uses enumerated(), which means that key will be the integer position of the item in the loop, and value will be a (String, String) tuple containing the key and the value for this item in the dictionary: ("Pilot", "Wash") then ("Doctor", "Simon").
  ***************
  
@@ -427,17 +423,17 @@ for (position, character) in status.reversed().enumerated() where position % 2 =
     print("\(position): \(character)")
 }
 ```
- 0: s
- 0: s, 2: i, 4: y
- 0: y
- 0: y, 2: i, 4: s
- 4: s, 2: i, 0: y
- 4: y, 2: i, 0: s
- Nothing will be output
- This code will compile but crash
- This code will not compile
+- [ ] 0: s
+- [ ] 0: s, 2: i, 4: y
+- [ ] 0: y
+- [ ] 0: y, 2: i, 4: s
+- [ ] 4: s, 2: i, 0: y
+- [ ] 4: y, 2: i, 0: s
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
  ++++++++++++
- Risposta corretta: 0: y, 2: i, 4: s.
+Risposta corretta: 0: y, 2: i, 4: s.
 Explanation: There are three things to understand about this code. First, reversed() is called on the string before enumerated(), which means the string is reversed but the enumeration (the positions) are not. Second, enumerated() will return each character in the reversed string, along with its position. Third, that position is passed into a where clause, and only even-numbered character indices will be printed.
 
  ******************
