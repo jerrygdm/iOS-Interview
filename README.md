@@ -64,27 +64,27 @@ print(myFriend.name)
 ```
 ----------------------------------------------
 
-* ""
-*  "Peter"
-* "myFriend"
-* nil
-* Nulla viene stampato
-* Questo codice compila ma va in crash
-* Questo codice non compila
+- [ ] ""
+- [ ]  "Peter"
+- [ ] "myFriend"
+- [ ] nil
+- [ ] Nulla viene stampato
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
 
  ++++++
 Riposta corretta: Questo codice non compila
 Spiegazione: Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 *********************************
  
- 
+ ```swift
 var i = 2
 
 do {
     print(i)
     i *= 2
 } while (i < 128)
- 
+ ```
  -----------
  
  2, 4, 8, 16, 32, 64
@@ -98,6 +98,7 @@ Risposta corretta: Questo codice non compila.
 Spiegazione: La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
 *********************************
 
+```swift
 
 let names = ["Amy", "Rory"]
 
@@ -105,7 +106,7 @@ for name in names {
     name = name.uppercased()
     print("HELLO, \(name)!")
 }
-
+```
 -----------------------
 
  "HELLO, AMY!"
@@ -119,12 +120,12 @@ for name in names {
 Risposta corretta: Questo codice non compila.
 Spiegazione: name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
 *********************************
-
+```swift
 let names = [String]()
 names.append("Amy")
 names.append("Clara")
 names.append("Rory")
-
+```
 ------------
 
  0
@@ -138,11 +139,11 @@ names.append("Rory")
  Risposta corretta: Questo codice non compila
  Spiegazione: L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
  *********************************
- 
+ ```swift
 let first = ["Sulaco", "Nostromo"]
 let second = ["X-Wing", "TIE Fighter"]
 let third = first + second
-
+```
 ------------
 
  "Sulaco", "Nostromo"
@@ -156,7 +157,7 @@ let third = first + second
  Risposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
 Spiegazione: Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
  *********************************
- 
+ ```swift
  let i = 3
 
 switch i {
@@ -167,7 +168,7 @@ case 2:
 case 3:
     print("Number was 3")
 }
-
+```
 -----------
 
  Prints "Number was 2"
@@ -179,11 +180,11 @@ case 3:
 Risposta corretta: Questo codice non compila
 Spiegazione: Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
 *********************************
-
+```swift
 let bigNumber = Int.max
 let biggerNumber = bigNumber + 1
 print(biggerNumber)
-
+```
 -------------
  -9223372036854775808
  0
@@ -237,12 +238,12 @@ By declaring it [weak self] you get to handle the case that it might be nil insi
 
 
 **************
- What output will be produced by the code below?
-
+Che output viene prodotto dal codice seguente?
+```swift
 let names = ["Pilot": "Wash", "Doctor": "Simon"]
 let doctor = names["doctor"] ?? "Bones"
 print(doctor)
-
+```
 ----------
  ""
  "Bones"
@@ -258,6 +259,7 @@ print(doctor)
  Risposta corretta: "Bones".
 Spiegazione: Viene fatto accesso all'elemento "doctor" nel dizionario, chiave mai inserita: i dizionari sono case sentitive. Ciò comporta come risultato nil che scatena l'esecuzione del "nil coalescing operator" che valorizzerà la variabile doctor a "Bones".
  *********************************
+ ```swift
 let userLoggedIn: Bool? = false
 
 if !userLoggedIn! {
@@ -265,6 +267,7 @@ if !userLoggedIn! {
 } else {
     print("Message two")
 }
+```
 ---------------
  "Message one"
  "Message two"
@@ -276,7 +279,7 @@ if !userLoggedIn! {
  Risposta corretta: "Message one".
 Spiegazione: L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
  *********************************
- 
+ ```swift
  let point = (556, 0)
 switch point {
 case (let x, 0):
@@ -286,7 +289,7 @@ case (0, let y):
 case let (x, y):
     print("X was \(x) and Y was \(y)")
 }
-
+```
 ------------
  X was 556
  X was 556 and Y was 0
@@ -318,9 +321,9 @@ Come ultimo punto Collection eredita da Sequence.
 ****************
  
  Quando questo codice è eseguito, cosa conterrà la costante numbers?
-
+```swift
 let numbers = [1, 2, 3].flatMap { [$0, $0] }
-
+```
 ----------------
  [1, 1, 2, 2, 3, 3]
  [1, 2, 3]
@@ -335,7 +338,8 @@ let numbers = [1, 2, 3].flatMap { [$0, $0] }
  Risposta corretta: [1, 1, 2, 2, 3, 3].
 Spiegazione: l'invocazione di map comporta in un loop di tutti gli elementi nell'array e risulta in una creazione di un nuovo array che contiene ogni numero duplicato. Ad esempio il primo numero (1) viene convertito in [1, 1] e così via. In questo caso viene utilizzato flatMap che appiattisce il tutto in un singolo array ovvero [[1, 1]] diventa [1, 1] (non array di array).
 ****************
-
+Quale dei due loop for stampa più linee?
+```swift
 import Foundation
 let data: [Any?] = ["Bill", nil, 69, "Ted"]
 
@@ -346,8 +350,7 @@ for datum in data where datum is String? {
 for case let .some(datum) in data where datum is String {
     print(datum)
 }
-
-Quale dei due loop for stampa più linee?
+```
 
  Both loops print the same number of lines
  The first loop prints more lines than the second
@@ -359,9 +362,11 @@ Quale dei due loop for stampa più linee?
  Risposta corretta: Il primo loop stampa più linee del secondo
 Explanation: There is a very subtle difference between the two loops, and it's triggered by the data type of the array: this is an array of Any? not an array of strings. The first loop will attempt to typecast its items as String?, which means the loop element must either be a string or nil – that's true of three items. The second loop, however, begins by unwrapping the optional, so it will either be Any or String, at which point our where clause will work. So, the second loop prints two lines.
 ****************
-
+```swift
 let string: String = String(describing: String.self)
 print(string)
+```
+
  ""
  "String"
  Swift.String
@@ -376,11 +381,13 @@ Explanation: Among the many constructors for strings is one that lets you pass i
  **********************
  
 When this code is executed, what will example2 be set to?
-
+```swift
 var names = [String]()
 names.append("Amy")
 let example1 = names.removeLast()
 let example2 = names.removeLast()
+```
+
  ""
  "Amy"
  nil
@@ -392,15 +399,16 @@ Risposta corretta: Questo codice compila ma va in crash
 Spiegazione: The removeLast() method returns the same data type as the array contains, which in this code is a String. As the only string in the array was already removed, the second call will throw an exception and crash
 
  *****************
- 
- 
+  
 In the code below, what data type is testVar?
-
+```swift
 let names = ["Pilot": "Wash", "Doctor": "Simon"]
 
 for (key, value) in names.enumerated() {
     let testVar = value
 }
+```
+
  (String, String)
  String
  [String, String]
@@ -412,12 +420,13 @@ Explanation: If you iterate over the names dictionary without using enumerated()
  ***************
  
  What output will be produced by the code below?
-
+```swift
 let status = "shiny"
 
 for (position, character) in status.reversed().enumerated() where position % 2 == 0 {
     print("\(position): \(character)")
 }
+```
  0: s
  0: s, 2: i, 4: y
  0: y
