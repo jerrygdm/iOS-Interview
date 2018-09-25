@@ -11,7 +11,7 @@
 * Background — L'applicazione è in esecuzione in background e sta eseguendo del codice.  
 * Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.  
 
-### Quali sono le differenze tra frame e bounds?
+### Quali sono le differenze tra frame e bounds?
 Il bounds di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0)
 Il frame di una UIView è allo stesso modo un rettangolo con una posizione e dimensione ma riferito rispetto alle coordinate della superview che lo contiene.
 
@@ -23,10 +23,12 @@ Views — responsabile per il livello di presentazione e interazione (GUI).
 Controller  — è il mediatore tra il modello e la view, solitamente riceve i comandi dall’utente e aggiorna il modello. Viceversa un evento può scatenare un aggiornamento del modello, tipicamente con il KVO o tramite un sistema di notifiche viene avvertito il Controller che aggiornerà a sua volta la view di conseguenza.
  
 ### Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
-Fileprivate è accessibile all'interno del file corrente, private è riferito all'interno della corrente dichiarazione mentre public private(set) significa che il getter è pubblico mentre il setter è privato.
+* fileprivate è accessibile all'interno del file corrente  
+* private è riferito all'interno della corrente dichiarazione  
+* public private(set) significa che il getter è pubblico mentre il setter è privato.
 
 ### Cos'è il "Forced Unwrapping" in Swift?
-Quando si dichiara una variabile opzionale, per ottenere il suo valore è necessario l'unwrap. Ciò è possibile tramite l'optional binding o il force unwrap.
+Quando si dichiara una variabile opzionale, per ottenere il suo valore è necessario l'unwrap. Ciò è possibile tramite l'optional binding o il force unwrap.  
 Il force unwrap fa si che si forzi l'unwrap in modo che il valore non sia più opzionale. Il force unwrap è potenzialmente pericoloso perchè nel caso la variabile sia nil il force unwrap lancerà un'eccezione che manderà in crash l'applicazione.
 
 ### Perchè si utilizzano le struct invece che le class?
@@ -41,7 +43,7 @@ Inserendo una chiamata di rete nel viewDidAppear scatenerebbe una richiesta ad o
 Nil non è un oggetto che è possibile inserire in un array o un dizionario in Objective-C. Questo è il motivo per il quale addObject(nil) manda in crash l'applicazione.
 
 ### Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
-Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento (O(1) vs O(n)).
+Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento (complessità O(1) vs O(n)).
 
 ### Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
 Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in background (mentre l’app non è in esecuzione) e il raggruppamento di varie richieste rendendo più semplice la loro cancellazione relativa ad un determinato lavoro. URLSession prevede una migliore sintassi che utilizza i “blocks”.
@@ -65,7 +67,7 @@ print(myFriend.name)
 ----------------------------------------------
 
 - [ ] ""
-- [ ]  "Peter"
+- [ ] "Peter"
 - [ ] "myFriend"
 - [ ] nil
 - [ ] Non viene stampato nulla
@@ -73,8 +75,9 @@ print(myFriend.name)
 - [ ] Questo codice non compila
 
  ++++++
-Riposta corretta: Questo codice non compila
-Spiegazione: Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
+### Riposta corretta: Questo codice non compila
+### Spiegazione 
+Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 *********************************
  
  ```swift
