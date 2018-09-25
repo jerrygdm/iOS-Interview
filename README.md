@@ -210,6 +210,11 @@ LayoutIfNeeded è un metodo sincrono, chiede al sistema l’immediato ridisegno 
 Le sottoclassi di UIView possono fare l’override di LayoutSubviews per definire più precisamente il layout delle viste devono apparire all’interno della vista in oggetto.
 
 ### D3. Cos'è Git? Perchè lo si utilizza? Cosa sai di Gitflow?
+Git è un sistema di controllo di versione distribuito (Distributed Version Control Systems o DVCS) sviluppato da Linus Torvalds che sta diventando rapidamente uno dei più diffusi in circolazione.  
+Git, considera i propri dati come una serie di istantanee di un mini filesystem. Ogni volta che l’utente effettua un commit o salva lo stato del proprio progetto, crea un’immagine di tutti i file presenti in quel momento, salvando un riferimento. Se alcuni file non sono stati modificati, GIT non li clona ma crea un collegamento agli stessi file della versione precedente.  
+Altro aspetto molto interessante è la possibilità di lavorare anche off-line con il server centrale. L’utente può lavorare sulla propria copia locale del repository e rendere pubbliche le modifiche quando il server torna online.
+
+Git flow è un flusso di sviluppo, che descrive un modello di diramazione, (branching), ben preciso costruito intorno al concetto di release software. Esso permette il versioning semantico e la potenzialità di poter lavorare all'interno di un team su feature separate nello stesso momento che andranno poi "mergiate" nel branch di sviluppo o quello principale.
 
 ### D4. Cos'è Autolayout e cosa sono i Constraint?
 Auolayout dinamicamente calcola la grandezza e la posizione di tutte le viste una particolare gerarchia di view.
@@ -219,13 +224,18 @@ I constraints sono i vincoli che si aggiungono alle viste per far in modo che au
 Il reuseIdentifier è importante nell'utilizzo di UITableView e UICollectionView. Il reuseIdentifier dichiara quali sono le celle che possono essere riciclate senza dover doverle ricreare (risparmiando tempo e memoria). Internamente al sistema vengono raggruppate le celle che differiscono solo del contenuto ma non del layout. L'utilizzo del reuseIdentifier è essenziale per avere una buona velocità nello scroll. E' compito del programmatore gestire il riciclo delle celle in modo che mentre l'utente scrolla il contenuto deve essere corretto e non anch'esso riciclato.
 
 
-### D6. Explain [weak self] and [unowned self] ?
-unowned ( non-strong reference ) does the same as weak with one exception: The variable will not become nil and must not be an optional.
-When you try to access the variable after its instance has been deallocated. That means, you should only use unowned when you are sure, that this variable will never be accessed after the corresponding instance has been deallocated.
-However, if you don’t want the variable to be weak AND you are sure that it can’t be accessed after the corresponding instance has been deallocated, you can use unowned.
-Every time used with non-optional types
-Every time used with let
-By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view.
+### D6. Cosa sono le closure in Swift?
+Una closure è un blocco di funzionalità che puoi distribuire nel tuo codice. Puoi passare una closure come argomento di una funzione o puoi memorizzarla come proprietà di un oggetto. Le closure hanno molti casi d'uso.
+
+Il nome closure suggerisce una delle loro caratteristiche chiave. Una closure prende le variabili e le costanti dal contesto nel quale è definita. Questo è definito talvolta come closing over.
+
+
+### D7. Spiegare [weak self] e [unowned self]
+Unowned (referenza non strong) è equivalente a weak ad una eccezione: la variabile non diventerà nil e non deve essere opzionale.
+Se si tenta di accedere ad una variabile dopo la sua deallocazione (ovvero bisogna usare unowned solo se si è sicuri che la variabile non verrà mai acceduta da nessuno dopo la deallocazione).
+Dichiarando [weak self] occorre gestire il caso in cui self possa essere nil (ad esempio con un if o un gard).  
+La dimenticanza di questo "sintactic sugar" può causare leak all'interno di closures se self ha una referenza strong alla closure e al suo interno è presente un'altra referenza strong verso self (concetto di referenza circolare).
+
 
 ### E1. Che output viene prodotto dal codice seguente?
 ```swift
@@ -437,7 +447,7 @@ for (position, character) in status.reversed().enumerated() where position % 2 =
 Ci sono 3 cose da capire in questo codice:  
 * reversed() è chiamato su una stringa prima di enumerated(), ciò significa che la stringa viene invertita ma non l'enumerazione
 * enumerated() ritornerà ogni carattere nella stringa invertita con la sua posizione
-* la posizione è passata nella clausola where e verranno stampati solo i caratteri di posizione pari
+* la posizione viene passata nella clausola where e verranno stampati solo i caratteri di posizione pari
  
  
  
