@@ -4,7 +4,7 @@
 
 ## BASE
 
-- Quali sono i principali stati di un'applicazione iOS?
+### Quali sono i principali stati di un'applicazione iOS?
 Non-running — L'applicazione non è in esecuzione
 Inactive — L'applicazione è in esecuzione in foreground ma non sta ricevendo eventi. Un'app iOS può essere messa nello stato "inactive" dal sistema operativo quando ad esempio si riceve una telefonata o un SMS.
 Active — L'applicazione è in esecuzione e sta ricevendo eventi.
@@ -203,7 +203,7 @@ Spiegazione: L'aggiunta di 1 al massimo numero intero rappresentabile solleva un
  
  
 
-INTERMEDIATE
+## INTERMEDIATE
 
 - Cosa accade se si invoca un metodo su un puntatore che è a nil?
 In Objective-C è considerata una no-op, è una operazione che non ha alcun effetto, l'app non va in crash.
@@ -307,7 +307,7 @@ Spiegazione: Swift esegue il primo blocco che viene "matchato" in uno switch. In
 
 
 
-AVANZATO
+## AVANZATO
 
 - What are differences between Manual and Automatic Reference Counting?
 
