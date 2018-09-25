@@ -11,42 +11,42 @@ Active — L'applicazione è in esecuzione e sta ricevendo eventi.
 Background — L'applicazione è in esecuzione in background e sta eseguendo del codice.
 Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.
 
-- Quali sono le differenze tra frame e bounds?
+### Quali sono le differenze tra frame e bounds?
 Il bounds di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0)
 Il frame di una UIView è allo stesso modo un rettangolo con una posizione e dimensione ma riferito rispetto alle coordinate della superview che lo contiene.
 
-- Spiegare il pattern MVC
+### Spiegare il pattern MVC
 MVC è il pattern consigliato da Apple per lo sviluppo su iOS ed è la base dei framework Cocoa e Cocoa Touch.
 MVC sta per Model View Controller, definisce una separazione logica dei componenti e come essi comunicano. 
 Models — responsabile per il dominio riguardante l’accesso ai dati dell’applicazione
 Views — responsabile per il livello di presentazione e interazione (GUI).
 Controller  — è il mediatore tra il modello e la view, solitamente riceve i comandi dall’utente e aggiorna il modello. Viceversa un evento può scatenare un aggiornamento del modello, tipicamente con il KVO o tramite un sistema di notifiche viene avvertito il Controller che aggiornerà a sua volta la view di conseguenza.
  
-- Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
+### Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
 Fileprivate è accessibile all'interno del file corrente, private è riferito all'interno della corrente dichiarazione mentre public private(set) significa che il getter è pubblico mentre il setter è privato.
 
-- Cos'è il "Forced Unwrapping" in Swift?
+### Cos'è il "Forced Unwrapping" in Swift?
 Quando si dichiara una variabile opzionale, per ottenere il suo valore è necessario l'unwrap. Ciò è possibile tramite l'optional binding o il force unwrap.
 Il force unwrap fa si che si forzi l'unwrap in modo che il valore non sia più opzionale. Il force unwrap è potenzialmente pericoloso perchè nel caso la variabile sia nil il force unwrap lancerà un'eccezione che manderà in crash l'applicazione.
 
-- Perchè si utilizzano le struct invece che le class?
+### Perchè si utilizzano le struct invece che le class?
 Le struct sono di tipo "value type" ovvero una sua copia o il passaggio di parametro avviene per valore mentre nel caso delle classi la copia avviene per "reference" ovvero viene copiato il puntatore.
 Dove usare uno o l'altro dipende dal contesto. Si preferiscono le classi quando copiare o comparare le istanze non ha senso nel contesto corrente.
 
-- Qual'è la differenza tra viewDidLoad e viewDidAppear? Nel quale è preferibile inserire una chiamata ad un server remoto in una classica architettura che utilizza il pattern MVC?
+### Qual'è la differenza tra viewDidLoad e viewDidAppear? Nel quale è preferibile inserire una chiamata ad un server remoto in una classica architettura che utilizza il pattern MVC?
 Nel contesto degli UIViewController il ViewDidLoad è il metodo eseguita dal sistema dopo che la view viene caricata in memoria e soprattutto una sola volta. ViewDidAppear viene chiamata ogni volta che la view è appare visibile all'utente.
 Inserendo una chiamata di rete nel viewDidAppear scatenerebbe una richiesta ad ogni visualizzazione della view del controller in questione. E’ quindi preferibile, a meno di casi particolari, inserire la chiamata nel viewDidLoad.
 
-- Cosa non è possibile inserire in un array o in un dizionario (Obj-C)?
+### Cosa non è possibile inserire in un array o in un dizionario (Obj-C)?
 Nil non è un oggetto che è possibile inserire in un array o un dizionario in Objective-C. Questo è il motivo per il quale addObject(nil) manda in crash l'applicazione.
 
-- Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
+### Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
 Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento (O(1) vs O(n)).
 
-- Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
+### Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
 Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in background (mentre l’app non è in esecuzione) e il raggruppamento di varie richieste rendendo più semplice la loro cancellazione relativa ad un determinato lavoro. URLSession prevede una migliore sintassi che utilizza i “blocks”.
 
-- Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un’istruzione in modo asincrono?
+### Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un’istruzione in modo asincrono?
 Una chiamata asincrona non blocca il thread di UI detto il main thread. In swift si utilizza il seguente codice:
 Dispatch.main.async {
 	// codice da eseguire
@@ -205,30 +205,24 @@ Spiegazione: L'aggiunta di 1 al massimo numero intero rappresentabile solleva un
 
 ## INTERMEDIATE
 
-- Cosa accade se si invoca un metodo su un puntatore che è a nil?
+### Cosa accade se si invoca un metodo su un puntatore che è a nil?
 In Objective-C è considerata una no-op, è una operazione che non ha alcun effetto, l'app non va in crash.
 
-- Differenze tra setNeedsLayout, layoutIfNeeded e layoutSubviews?
+### Differenze tra setNeedsLayout, layoutIfNeeded e layoutSubviews?
 Il metodo setNeedsLayout chiede al sistema di ridisegnare una vista e le sue sottoviste associate, il metodo ritorna immediatamente, è asincrono e dunque non è indeterminato il momento del completametno dell’operazione.
 LayoutIfNeeded è un metodo sincrono, chiede al sistema l’immediato ridisegno di una vista e delle eventuali sottoviste.
 Le sottoclassi di UIView possono fare l’override di LayoutSubviews per definire più precisamente il layout delle viste devono apparire all’interno della vista in oggetto.
 
-- What is Git? Are you using and how?
-- Explain Autolayout, Constraints
+### What is Git? Are you using and how?
+### Explain Autolayout, Constraints
 Auolayout dinamicamente calcola la grandezza e la posizione di tutte le viste una particolare gerarchia di view.
 I constraints sono i vincoli che si aggiungono alle viste per far in modo che autolayout possa calcolare tutto con precisione.
 
-- Qual'è lo scopo del reuseIdentifier?
+### Qual'è lo scopo del reuseIdentifier?
 Il reuseIdentifier è importante nell'utilizzo di UITableView e UICollectionView. Il reuseIdentifier dichiara quali sono le celle che possono essere riciclate senza dover doverle ricreare (risparmiando tempo e memoria). Internamente al sistema vengono raggruppate le celle che differiscono solo del contenuto ma non del layout. L'utilizzo del reuseIdentifier è essenziale per avere una buona velocità nello scroll. E' compito del programmatore gestire il riciclo delle celle in modo che mentre l'utente scrolla il contenuto deve essere corretto e non anch'esso riciclato.
 
 
-- Explain MVVM 
-UIKit independent representation of your View and its state. The View Model invokes changes in the Model and updates itself with the updated Model, and since we have a binding between the View and the View Model, the first is updated accordingly.
-Your view model will actually take in your model, and it can format the information that’s going to be displayed on your view.
-There is a more known framework called RxSwift. It contains RxCocoa, which are reactive extensions for Cocoa and CocoaTouch.
-
-
-- Explain [weak self] and [unowned self] ?
+### Explain [weak self] and [unowned self] ?
 unowned ( non-strong reference ) does the same as weak with one exception: The variable will not become nil and must not be an optional.
 When you try to access the variable after its instance has been deallocated. That means, you should only use unowned when you are sure, that this variable will never be accessed after the corresponding instance has been deallocated.
 However, if you don’t want the variable to be weak AND you are sure that it can’t be accessed after the corresponding instance has been deallocated, you can use unowned.
@@ -307,12 +301,17 @@ Spiegazione: Swift esegue il primo blocco che viene "matchato" in uno switch. In
 
 ## AVANZATO
 
-- What are differences between Manual and Automatic Reference Counting?
+### What are differences between Manual and Automatic Reference Counting?
 
-- Quali sono le differenze tra Sequence Protocol e Collection Protocol?
+### Quali sono le differenze tra Sequence Protocol e Collection Protocol?
 Una sequenza rappresenta un insieme di valori che possono essere iterati tramite un for-loop.
 Collection è una Sequence che dove ci si può accedere agli elementi tramite subscript e definisce l'indice di partenza (startIndex) e di fine (endIndex). Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
 Come ultimo punto Collection eredita da Sequence. 
+
+### Explain MVVM 
+UIKit independent representation of your View and its state. The View Model invokes changes in the Model and updates itself with the updated Model, and since we have a binding between the View and the View Model, the first is updated accordingly.
+Your view model will actually take in your model, and it can format the information that’s going to be displayed on your view.
+There is a more known framework called RxSwift. It contains RxCocoa, which are reactive extensions for Cocoa and CocoaTouch.
 
 
 
