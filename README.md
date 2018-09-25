@@ -4,57 +4,57 @@
 
 ## BASE
 
-### Quali sono i principali stati di un'applicazione iOS?
+### D1. Quali sono i principali stati di un'applicazione iOS?
 * Non-running — L'applicazione non è in esecuzione. 
 * Inactive — L'applicazione è in esecuzione in foreground ma non sta ricevendo eventi. Un'app iOS può essere messa nello stato "inactive" dal sistema operativo quando ad esempio si riceve una telefonata o un SMS.  
 * Active — L'applicazione è in esecuzione e sta ricevendo eventi.  
 * Background — L'applicazione è in esecuzione in background e sta eseguendo del codice.  
 * Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.  
 
-### Quali sono le differenze tra frame e bounds?
+### D2. Quali sono le differenze tra frame e bounds?
 Il bounds di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0)
 Il frame di una UIView è allo stesso modo un rettangolo con una posizione e dimensione ma riferito rispetto alle coordinate della superview che lo contiene.
 
-### Spiegare il pattern MVC
+### D3. Spiegare il pattern MVC
 MVC è il pattern consigliato da Apple per lo sviluppo su iOS ed è la base dei framework Cocoa e Cocoa Touch.
 MVC sta per Model View Controller, definisce una separazione logica dei componenti e come essi comunicano. 
 Models — responsabile per il dominio riguardante l’accesso ai dati dell’applicazione
 Views — responsabile per il livello di presentazione e interazione (GUI).
 Controller  — è il mediatore tra il modello e la view, solitamente riceve i comandi dall’utente e aggiorna il modello. Viceversa un evento può scatenare un aggiornamento del modello, tipicamente con il KVO o tramite un sistema di notifiche viene avvertito il Controller che aggiornerà a sua volta la view di conseguenza.
  
-### Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
+### D4. Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
 * fileprivate è accessibile all'interno del file corrente  
 * private è riferito all'interno della corrente dichiarazione  
 * public private(set) significa che il getter è pubblico mentre il setter è privato.
 
-### Cos'è il "Forced Unwrapping" in Swift?
+### D5. Cos'è il "Forced Unwrapping" in Swift?
 Quando si dichiara una variabile opzionale, per ottenere il suo valore è necessario l'unwrap. Ciò è possibile tramite l'optional binding o il force unwrap.  
 Il force unwrap fa si che si forzi l'unwrap in modo che il valore non sia più opzionale. Il force unwrap è potenzialmente pericoloso perchè nel caso la variabile sia nil il force unwrap lancerà un'eccezione che manderà in crash l'applicazione.
 
-### Perchè si utilizzano le struct al posto delle classi?
+### D6. Perchè si utilizzano le struct al posto delle classi?
 Le struct sono di tipo "value type" ovvero una sua copia o il passaggio di parametro avviene per valore mentre nel caso delle classi la copia avviene per "reference" ovvero viene copiato il puntatore.
 Dove usare uno o l'altro dipende dal contesto. Si preferiscono le classi quando copiare o comparare le istanze non ha senso nel contesto corrente.
 
-### Qual'è la differenza tra viewDidLoad e viewDidAppear? Nel quale è preferibile inserire una chiamata ad un server remoto in una classica architettura che utilizza il pattern MVC?
+### D7. Qual'è la differenza tra viewDidLoad e viewDidAppear? Nel quale è preferibile inserire una chiamata ad un server remoto in una classica architettura che utilizza il pattern MVC?
 Nel contesto degli UIViewController il ViewDidLoad è il metodo eseguita dal sistema dopo che la view viene caricata in memoria e soprattutto una sola volta. ViewDidAppear viene chiamata ogni volta che la view è appare visibile all'utente.
 Inserendo una chiamata di rete nel viewDidAppear scatenerebbe una richiesta ad ogni visualizzazione della view del controller in questione. E’ quindi preferibile, a meno di casi particolari, inserire la chiamata nel viewDidLoad.
 
-### Cosa non è possibile inserire in un array o in un dizionario (Obj-C)?
+### D8. Cosa non è possibile inserire in un array o in un dizionario (Obj-C)?
 Nil non è un oggetto che è possibile inserire in un array o un dizionario in Objective-C. Questo è il motivo per il quale addObject(nil) manda in crash l'applicazione.
 
-### Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
+### D9. Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
 Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento (complessità O(1) vs O(n)).
 
-### Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
+### D10. Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
 Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in background (mentre l’app non è in esecuzione) e il raggruppamento di varie richieste rendendo più semplice la loro cancellazione relativa ad un determinato lavoro. URLSession prevede una migliore sintassi che utilizza i “blocks”.
 
-### Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un’istruzione in modo asincrono?
+### D11. Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un’istruzione in modo asincrono?
 Una chiamata asincrona non blocca il thread di UI detto il main thread. In swift si utilizza il seguente codice:
 Dispatch.main.async {
 	// codice da eseguire
 }
 
-
+### E1.
 *********************************
 ```swift
 class Person {
@@ -74,12 +74,14 @@ print(myFriend.name)
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 
- ++++++
+++++++
 ##### Riposta corretta: Questo codice non compila
 ##### Spiegazione 
 Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
+
+
+### E2.
 *********************************
- 
  ```swift
 var i = 2
 
@@ -87,9 +89,8 @@ do {
     print(i)
     i *= 2
 } while (i < 128)
- ```
- -----------
-
+```
+*********************************
 - [ ] 2, 4, 8, 16, 32, 64
 - [ ] 2, 4, 8, 16, 32, 64, 128
 - [ ] Non viene stampato nulla
@@ -97,12 +98,14 @@ do {
 - [ ] Questo codice non compila
 
 +++++
-Risposta corretta: Questo codice non compila.
-Spiegazione: La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
+##### Risposta corretta: Questo codice non compila.
+##### Spiegazione
+La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
+
+
+### E3.
 *********************************
-
 ```swift
-
 let names = ["Amy", "Rory"]
 
 for name in names {
@@ -111,7 +114,6 @@ for name in names {
 }
 ```
 -----------------------
-
 - [ ] "HELLO, AMY!"
 - [ ] "HELLO, AMY!", "HELLO, RORY!"
 - [ ] "HELLO, RORY!"
