@@ -54,7 +54,7 @@ Dispatch.main.async {
 	// codice da eseguire
 }
 
-### E1.
+### E1. Cosa stampa il seguente codice?
 *********************************
 ```swift
 class Person {
@@ -80,7 +80,7 @@ print(myFriend.name)
 Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 
 
-### E2.
+### E2. Cosa produce il seguente codice?
 *********************************
  ```swift
 var i = 2
@@ -93,7 +93,6 @@ do {
 *********************************
 - [ ] 2, 4, 8, 16, 32, 64
 - [ ] 2, 4, 8, 16, 32, 64, 128
-- [ ] Non viene stampato nulla
 - [ ] Questo codice compila ma va in crash
 - [ ] Questo codice non compila
 
@@ -103,7 +102,7 @@ do {
 La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
 
 
-### E3.
+### E3. Cosa stampa il seguente codice?
 *********************************
 ```swift
 let names = ["Amy", "Rory"]
@@ -124,6 +123,8 @@ for name in names {
  +++++
 Risposta corretta: Questo codice non compila.
 Spiegazione: name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
+
+### E4. Quanti elementi conterrà l'array names alla fine dell'esecuzione del codice?
 *********************************
 ```swift
 let names = [String]()
@@ -132,7 +133,6 @@ names.append("Clara")
 names.append("Rory")
 ```
 ------------
-
 - [ ] 0
 - [ ] 1
 - [ ] 2
@@ -143,7 +143,9 @@ names.append("Rory")
  ++++
  Risposta corretta: Questo codice non compila
  Spiegazione: L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
- *********************************
+ 
+### E5. Cosa conterrà la costante third alla fine dell'esecuzione del codice?
+*********************************
  ```swift
 let first = ["Sulaco", "Nostromo"]
 let second = ["X-Wing", "TIE Fighter"]
@@ -161,6 +163,8 @@ let third = first + second
  +++++
  Risposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
 Spiegazione: Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
+
+### E6. Cosa stampa il seguente codice?
  *********************************
  ```swift
  let i = 3
@@ -184,6 +188,8 @@ case 3:
 ++++++++
 Risposta corretta: Questo codice non compila
 Spiegazione: Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
+
+### E7. Cosa stampa il seguente codice?
 *********************************
 ```swift
 let bigNumber = Int.max
@@ -210,24 +216,25 @@ Spiegazione: L'aggiunta di 1 al massimo numero intero rappresentabile solleva un
 
 ## INTERMEDIATE
 
-### Cosa accade se si invoca un metodo su un puntatore che è a nil?
+### D1. Cosa accade se si invoca un metodo su un puntatore che è a nil?
 In Objective-C è considerata una no-op, è una operazione che non ha alcun effetto, l'app non va in crash.
 
-### Differenze tra setNeedsLayout, layoutIfNeeded e layoutSubviews?
+### D2. Differenze tra setNeedsLayout, layoutIfNeeded e layoutSubviews?
 Il metodo setNeedsLayout chiede al sistema di ridisegnare una vista e le sue sottoviste associate, il metodo ritorna immediatamente, è asincrono e dunque non è indeterminato il momento del completametno dell’operazione.
 LayoutIfNeeded è un metodo sincrono, chiede al sistema l’immediato ridisegno di una vista e delle eventuali sottoviste.
 Le sottoclassi di UIView possono fare l’override di LayoutSubviews per definire più precisamente il layout delle viste devono apparire all’interno della vista in oggetto.
 
-### What is Git? Are you using and how?
-### Explain Autolayout, Constraints
+### D3. Cos'è Git? Perchè lo si utilizza? Cosa sai di Gitflow?
+
+### D4. Cos'è Autolayout e cosa sono i Constraint?
 Auolayout dinamicamente calcola la grandezza e la posizione di tutte le viste una particolare gerarchia di view.
 I constraints sono i vincoli che si aggiungono alle viste per far in modo che autolayout possa calcolare tutto con precisione.
 
-### Qual'è lo scopo del reuseIdentifier?
+### D5. Qual'è lo scopo del reuseIdentifier?
 Il reuseIdentifier è importante nell'utilizzo di UITableView e UICollectionView. Il reuseIdentifier dichiara quali sono le celle che possono essere riciclate senza dover doverle ricreare (risparmiando tempo e memoria). Internamente al sistema vengono raggruppate le celle che differiscono solo del contenuto ma non del layout. L'utilizzo del reuseIdentifier è essenziale per avere una buona velocità nello scroll. E' compito del programmatore gestire il riciclo delle celle in modo che mentre l'utente scrolla il contenuto deve essere corretto e non anch'esso riciclato.
 
 
-### Explain [weak self] and [unowned self] ?
+### D6. Explain [weak self] and [unowned self] ?
 unowned ( non-strong reference ) does the same as weak with one exception: The variable will not become nil and must not be an optional.
 When you try to access the variable after its instance has been deallocated. That means, you should only use unowned when you are sure, that this variable will never be accessed after the corresponding instance has been deallocated.
 However, if you don’t want the variable to be weak AND you are sure that it can’t be accessed after the corresponding instance has been deallocated, you can use unowned.
@@ -235,9 +242,8 @@ Every time used with non-optional types
 Every time used with let
 By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view.
 
-
+### E1. Che output viene prodotto dal codice seguente?
 **************
-Che output viene prodotto dal codice seguente?
 ```swift
 let names = ["Pilot": "Wash", "Doctor": "Simon"]
 let doctor = names["doctor"] ?? "Bones"
@@ -256,7 +262,9 @@ print(doctor)
  +++++++
  Risposta corretta: "Bones".
 Spiegazione: Viene fatto accesso all'elemento "doctor" nel dizionario, chiave mai inserita: i dizionari sono case sentitive. Ciò comporta come risultato nil che scatena l'esecuzione del "nil coalescing operator" che valorizzerà la variabile doctor a "Bones".
- *********************************
+
+### E2. Che cosa stampa il codice seguente?
+*********************************
  ```swift
 let userLoggedIn: Bool? = false
 
@@ -276,7 +284,9 @@ if !userLoggedIn! {
  ++++++++
  Risposta corretta: "Message one".
 Spiegazione: L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
- *********************************
+
+### E3. Che cosa stampa il codice seguente?
+*********************************
  ```swift
  let point = (556, 0)
 switch point {
@@ -319,10 +329,9 @@ Your view model will actually take in your model, and it can format the informat
 There is a more known framework called RxSwift. It contains RxCocoa, which are reactive extensions for Cocoa and CocoaTouch.
 
 
-
+### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ****************
- 
- Quando questo codice è eseguito, cosa conterrà la costante numbers?
+
 ```swift
 let numbers = [1, 2, 3].flatMap { [$0, $0] }
 ```
@@ -339,8 +348,9 @@ let numbers = [1, 2, 3].flatMap { [$0, $0] }
  +++++++++
  Risposta corretta: [1, 1, 2, 2, 3, 3].
 Spiegazione: l'invocazione di map comporta in un loop di tutti gli elementi nell'array e risulta in una creazione di un nuovo array che contiene ogni numero duplicato. Ad esempio il primo numero (1) viene convertito in [1, 1] e così via. In questo caso viene utilizzato flatMap che appiattisce il tutto in un singolo array ovvero [[1, 1]] diventa [1, 1] (non array di array).
+
+### E2. Quale dei due loop for stampa più linee?
 ****************
-Quale dei due loop for stampa più linee?
 ```swift
 import Foundation
 let data: [Any?] = ["Bill", nil, 69, "Ted"]
@@ -363,6 +373,8 @@ for case let .some(datum) in data where datum is String {
  +++++++++
  Risposta corretta: Il primo loop stampa più linee del secondo
 Explanation: There is a very subtle difference between the two loops, and it's triggered by the data type of the array: this is an array of Any? not an array of strings. The first loop will attempt to typecast its items as String?, which means the loop element must either be a string or nil – that's true of three items. The second loop, however, begins by unwrapping the optional, so it will either be Any or String, at which point our where clause will work. So, the second loop prints two lines.
+
+### E3. Cosa stampa il seguente codice?
 ****************
 ```swift
 let string: String = String(describing: String.self)
@@ -379,7 +391,9 @@ print(string)
  +++++++++++
  Risposta corretta: "String"
 Explanation: Among the many constructors for strings is one that lets you pass in a class to have the string set to the name of that class. That is, String(describing: String.self) means "create a string out of the name of the String class." This is equivalent to the NSStringFromClass() function that Objective-C developers often use.
- **********************
+
+### E4. Quando questo codice viene eseguito cosa conterrà la costante example2?
+**********************
  
 When this code is executed, what will example2 be set to?
 ```swift
@@ -399,7 +413,8 @@ let example2 = names.removeLast()
 Risposta corretta: Questo codice compila ma va in crash
 Spiegazione: The removeLast() method returns the same data type as the array contains, which in this code is a String. As the only string in the array was already removed, the second call will throw an exception and crash
 
- *****************
+### E5. Nel codice seguente quale sarà il tipo di dato di testVar?
+*****************
   
 In the code below, what data type is testVar?
 ```swift
@@ -417,16 +432,17 @@ for (key, value) in names.enumerated() {
 
 Risposta corretta: (String, String).
 Explanation: If you iterate over the names dictionary without using enumerated(), key would be Pilot then Doctor, and value would be Wash then Simon. However, this code uses enumerated(), which means that key will be the integer position of the item in the loop, and value will be a (String, String) tuple containing the key and the value for this item in the dictionary: ("Pilot", "Wash") then ("Doctor", "Simon").
- ***************
- 
- What output will be produced by the code below?
-```swift
+
+### E6. Che output produrrà iò seguente codice?
+***************
+ ```swift
 let status = "shiny"
 
 for (position, character) in status.reversed().enumerated() where position % 2 == 0 {
     print("\(position): \(character)")
 }
 ```
+
 - [ ] 0: s
 - [ ] 0: s, 2: i, 4: y
 - [ ] 0: y
@@ -439,8 +455,6 @@ for (position, character) in status.reversed().enumerated() where position % 2 =
  ++++++++++++
 Risposta corretta: 0: y, 2: i, 4: s.
 Explanation: There are three things to understand about this code. First, reversed() is called on the string before enumerated(), which means the string is reversed but the enumeration (the positions) are not. Second, enumerated() will return each character in the reversed string, along with its position. Third, that position is passed into a where clause, and only even-numbered character indices will be printed.
-
- ******************
  
  
  
