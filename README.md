@@ -1,4 +1,4 @@
-# iOS-Interview
+# iOS Interview Questions
 
 
 
@@ -31,7 +31,7 @@ Controller  — è il mediatore tra il modello e la view, solitamente riceve i
 Quando si dichiara una variabile opzionale, per ottenere il suo valore è necessario l'unwrap. Ciò è possibile tramite l'optional binding o il force unwrap.  
 Il force unwrap fa si che si forzi l'unwrap in modo che il valore non sia più opzionale. Il force unwrap è potenzialmente pericoloso perchè nel caso la variabile sia nil il force unwrap lancerà un'eccezione che manderà in crash l'applicazione.
 
-### Perchè si utilizzano le struct invece che le class?
+### Perchè si utilizzano le struct al posto delle classi?
 Le struct sono di tipo "value type" ovvero una sua copia o il passaggio di parametro avviene per valore mentre nel caso delle classi la copia avviene per "reference" ovvero viene copiato il puntatore.
 Dove usare uno o l'altro dipende dal contesto. Si preferiscono le classi quando copiare o comparare le istanze non ha senso nel contesto corrente.
 
@@ -54,6 +54,7 @@ Dispatch.main.async {
 	// codice da eseguire
 }
 
+
 *********************************
 ```swift
 class Person {
@@ -64,8 +65,7 @@ class Person {
 let myFriend = Person(name: "Peter", age: 24)
 print(myFriend.name)
 ```
-----------------------------------------------
-
+*********************************
 - [ ] ""
 - [ ] "Peter"
 - [ ] "myFriend"
@@ -75,8 +75,8 @@ print(myFriend.name)
 - [ ] Questo codice non compila
 
  ++++++
-### Riposta corretta: Questo codice non compila
-### Spiegazione 
+##### Riposta corretta: Questo codice non compila
+##### Spiegazione 
 Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 *********************************
  
