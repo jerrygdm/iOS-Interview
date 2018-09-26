@@ -341,6 +341,12 @@ Il framework ufficiale per lo unit test è XCTest, importanti alternative specia
 ### D6. A cosa serve la keyword defer in Swift?
 Si utilizza defer quando si vuole che un determinato blocco di codice venga eseguito mentre si sta lasciando lo scope corrente (es. dopo una return in una funzione).
 
+### D7. Nel mondo RxSwift-RxCocoa in cosa differisce la subscription utilizzando un observable rispetto ad un driver?
+Con driver:
+* non può mai essere emesso un errore
+* il delivery avviene nel MainScheduler.instance
+* viene applicato lo sharing strategy share(replay: 1, scope: .whileConnected)
+
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ```swift
 let numbers = [1, 2, 3].flatMap { [$0, $0] }
