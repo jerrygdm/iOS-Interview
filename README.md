@@ -244,12 +244,11 @@ Altro aspetto molto interessante è la possibilità di lavorare anche off-line c
 Git flow è un flusso di sviluppo, che descrive un modello di diramazione, (branching), ben preciso costruito intorno al concetto di release software. Esso permette il versioning semantico e la potenzialità di poter lavorare all'interno di un team su feature separate nello stesso momento che andranno poi "mergiate" nel branch di sviluppo o quello principale.
 
 ### D4. Cos'è Autolayout e cosa sono i Constraint?
-Auolayout dinamicamente calcola la grandezza e la posizione di tutte le viste una particolare gerarchia di view.
+Auolayout dinamicamente calcola la grandezza e la posizione di tutte le viste in una particolare gerarchia di view.
 I constraints sono i vincoli che si aggiungono alle viste per far in modo che autolayout possa calcolare tutto con precisione.
 
 ### D5. Qual'è lo scopo del reuseIdentifier?
 Il reuseIdentifier è importante nell'utilizzo di UITableView e UICollectionView. Il reuseIdentifier dichiara quali sono le celle che possono essere riciclate senza dover doverle ricreare (risparmiando tempo e memoria). Internamente al sistema vengono raggruppate le celle che differiscono solo del contenuto ma non del layout. L'utilizzo del reuseIdentifier è essenziale per avere una buona velocità nello scroll. E' compito del programmatore gestire il riciclo delle celle in modo che mentre l'utente scrolla il contenuto deve essere corretto e non anch'esso riciclato.
-
 
 ### D6. Cosa sono le closure in Swift?
 Una closure è un blocco di funzionalità che puoi distribuire nel tuo codice. Puoi passare una closure come argomento di una funzione o puoi memorizzarla come proprietà di un oggetto. Le closure hanno molti casi d'uso.
@@ -259,7 +258,7 @@ Il nome closure suggerisce una delle loro caratteristiche chiave. Una closure pr
 
 ### D7. Spiegare [weak self] e [unowned self]
 Unowned (referenza non strong) è equivalente a weak ad una eccezione: la variabile non diventerà nil e non deve essere opzionale.
-Se si tenta di accedere ad una variabile dopo la sua deallocazione (ovvero bisogna usare unowned solo se si è sicuri che la variabile non verrà mai acceduta da nessuno dopo la deallocazione).
+Bisognaa stare attenti all'utilizzo di [unowned self] perchè se l'oggetto è stato deallocato prima della chiamata della closure avverrà inevitabilmente un crash.
 Dichiarando [weak self] occorre gestire il caso in cui self possa essere nil (ad esempio con un if o un gard).  
 La dimenticanza di questo "sintactic sugar" può causare leak all'interno di closures se self ha una referenza strong alla closure e al suo interno è presente un'altra referenza strong verso self (concetto di referenza circolare).
 
@@ -346,7 +345,8 @@ ARC non è un garbage collector in quanto lavora a compile time e non a run-time
 
 ### D2. Quali sono le differenze tra Sequence Protocol e Collection Protocol?
 Una sequenza rappresenta un insieme di valori che possono essere iterati tramite un for-loop.
-Collection è una Sequence che dove ci si può accedere agli elementi tramite subscript e definisce l'indice di partenza (startIndex) e di fine (endIndex). Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
+Collection è una Sequence dove ci si può accedere agli elementi tramite subscript, definisce inoltre l'indice di partenza (startIndex) e di fine (endIndex).  
+Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
 Come ultimo punto Collection eredita da Sequence. 
 
 ### D3. Cos'è MVVM?
@@ -372,6 +372,9 @@ Con driver:
 * non può mai essere emesso un errore
 * il delivery avviene nel MainScheduler.instance
 * viene applicato lo sharing strategy share(replay: 1, scope: .whileConnected)
+
+### D8. Nel paradigma Rx se un observable per qualche motivo emette un Error cosa succede?
+L'intero sottoscriizione viene terminata con errore e non è più possibile ricevere nuovi elementi a meno di una nuova sottoscrizione.
 
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ```swift
