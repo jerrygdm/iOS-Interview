@@ -17,10 +17,10 @@ Il frame di una UIView è allo stesso modo un rettangolo con una posizione e dim
 
 ### D3. Spiegare il pattern MVC
 MVC è il pattern consigliato da Apple per lo sviluppo su iOS ed è la base dei framework Cocoa e Cocoa Touch.
-MVC sta per Model View Controller, definisce una separazione logica dei componenti e come essi comunicano. 
-Models — responsabile per il dominio riguardante l’accesso ai dati dell’applicazione
-Views — responsabile per il livello di presentazione e interazione (GUI).
-Controller  — è il mediatore tra il modello e la view, solitamente riceve i comandi dall’utente e aggiorna il modello. Viceversa un evento può scatenare un aggiornamento del modello, tipicamente con il KVO o tramite un sistema di notifiche viene avvertito il Controller che aggiornerà a sua volta la view di conseguenza.
+MVC sta per Model View Controller, definisce una separazione logica dei componenti e come essi comunicano.  
+* Models — responsabile per il dominio riguardante l’accesso ai dati dell’applicazione
+* Views — responsabile per il livello di presentazione e interazione (GUI).
+* Controller — è il mediatore tra il modello e la view, solitamente riceve i comandi dall’utente e aggiorna il modello. Viceversa un evento può scatenare un aggiornamento del modello, tipicamente con il KVO o tramite un sistema di notifiche viene avvertito il Controller che aggiornerà a sua volta la view di conseguenza.
  
 ### D4. Qual'è la differenza tra: fileprivate, private e public private(set) in Swift?
 * fileprivate è accessibile all'interno del file corrente  
