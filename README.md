@@ -48,8 +48,9 @@ Quando l'ordine degli elementi in una collection non è importante NSSet è molt
 ### D10. Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
 Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in background (mentre l’app non è in esecuzione) e il raggruppamento di varie richieste rendendo più semplice la loro cancellazione relativa ad un determinato lavoro. URLSession prevede una migliore sintassi che utilizza i “blocks”.
 
-### D11. Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un’istruzione in modo asincrono?
-Una chiamata asincrona non blocca il thread di UI detto il main thread. In swift si utilizza il seguente codice:
+### D11. Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un task in modo asincrono?
+Una chiamata asincrona non blocca il thread di UI detto il main thread.  
+In swift si utilizza il seguente codice:
 Dispatch.main.async {
 	// codice da eseguire
 }
@@ -237,6 +238,9 @@ Dichiarando [weak self] occorre gestire il caso in cui self possa essere nil (ad
 La dimenticanza di questo "sintactic sugar" può causare leak all'interno di closures se self ha una referenza strong alla closure e al suo interno è presente un'altra referenza strong verso self (concetto di referenza circolare).
 
 
+### D8. Cos'è Core Data?
+Core Data è il framework di Apple usato per gestire il layer di modelli. Ha la capacità di persistere un grafo di oggetti in un persistant store. I dati sono organizzati in un modello relazoinale e di entità-attributi.
+
 ### E1. Che output viene prodotto dal codice seguente?
 ```swift
 let names = ["Pilot": "Wash", "Doctor": "Simon"]
@@ -306,7 +310,7 @@ Swift esegue il primo blocco che viene "matchato" in uno switch. In questo caso 
 
 ## AVANZATO
 
-### Quali sono le differenze tra il Manual e l'Automatic Rerenrence Counting?
+### D1. Quali sono le differenze tra il Manual e l'Automatic Rerenrence Counting?
 Per gestire manualmente la memoria è necessario conoscere il concetto di Reference Counter e alla proprietà che ogni oggetto possiede: retainCount, questo è un intero che indica il numero di oggetti associati all'oggetto stesso.  
 Se il retainCount di un oggetto arriva a 0 viene deallocato da l'AutoreleasePool.  
 Quando un oggetto viene istanziato con alloc e init il retainCount vale 1, è possibile esplicitare retain e release per far aumentare e diminuire rispettivamente il retainCount.
@@ -314,19 +318,22 @@ Un retainCount errato può portare a leak o crash dell'applicazione.
 Con ARC (gestione automatica della memoria) introdotto da Xcode 4.2 lo sviluppatore non deve più preoccuparsi di invocare esplicitamente retain e release per tenere coerente il valore di retainCount.  
 ARC non è un garbage collector in quanto lavora a compile time e non a run-time.
 
-### Quali sono le differenze tra Sequence Protocol e Collection Protocol?
+### D2. Quali sono le differenze tra Sequence Protocol e Collection Protocol?
 Una sequenza rappresenta un insieme di valori che possono essere iterati tramite un for-loop.
 Collection è una Sequence che dove ci si può accedere agli elementi tramite subscript e definisce l'indice di partenza (startIndex) e di fine (endIndex). Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
 Come ultimo punto Collection eredita da Sequence. 
 
-### Spiega MVVM 
+### D3. Spiega MVVM 
 Il Model rappresenta il punto di accesso ai dati. Trattasi di una o più classi che leggono dati dal DB, oppure da un servizio Web di qualsivoglia natura.
 La View rappresenta la vista dell’applicazione, l’interfaccia grafica che mostrerà i dati.
 Il ViewModel è il punto di incontro tra la View e il Model: i dati ricevuti da quest’ultimo sono elaborati per essere presentati e passati alla View. Qui risiede la logica di business dell'app.
 In iOS negli ultimi anni esiste un popolare framework chiamato RxSWift che aggiunge le reactive extension al mondo iOS mentre un altro framework RxCocoa aggiunge tali estensioni al mondo della UI di iOS.
 
-### Nel contesto MVVM un UIViewController a che parte appartiene? Model, View o ViewModel?
+### D4. Nel contesto MVVM un UIViewController a che parte appartiene? Model, View o ViewModel?
 Nel caso di iOS è inevitabile la componente del Controller anche in un'architettura che prevede MVVM. Il controller farà parte comunque del mondo "view". Il controller conoscerà il ViewModel e la View e non viceversa.
+
+### D5. Hai esperienza con il TDD/BDD in iOS? Se si, che framework utilizzi?
+Il framework ufficiale per lo unit test è XCTest, importanti alternative specialmente per il BDD sono Kiwi, Quick (e Nimble  che è una mather library per le expectations).
 
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ```swift
