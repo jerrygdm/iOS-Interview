@@ -79,8 +79,35 @@ print(myFriend.name)
 ##### Spiegazione  
 Le Struct supportano la "memberwise initialization" mentre le classi non ancora nelle attuali versioni di Swift. Questo codice non compila perchè la classe non ha un inizializzatore 
 
+### E2. Scrivere una funzione che ritorni true quando una stringa data in input è palindroma, false altrimenti
+*********************************
+##### Riposte di esempio:
+```swift
+func isPalindrome(_ input: String) -> Bool {
+  let reversed = String(input.reversed())
+  if input == reversed {
+    return true
+  }
+  return false
+}
+```
+oppure (soluzione case sensitive)
+```swift
+func isPalindrome2(_ input: String) -> Bool {
+  return String(input.reversed()).lowercased() == input.lowercased()
+}
+```
+oppure con l'uso di un'extension
+```swift
+extension String {
+    func isPalindrome() -> Bool {
+        return self == String(self.reversed())
+    }
+}
+```
 
-### E2. Cosa produce il seguente codice?
+
+### E3. Cosa produce il seguente codice?
  ```swift
 var i = 2
 
@@ -99,8 +126,62 @@ do {
 ##### Spiegazione  
 La keyword "do" non è corretta qui, occorre usare ia keyword "repeat".
 
+### E4. Cosa conterrà la costante third alla fine dell'esecuzione del codice?
+ ```swift
+let first = ["Sulaco", "Nostromo"]
+let second = ["X-Wing", "TIE Fighter"]
+let third = first + second
+```
 
-### E3. Cosa stampa il seguente codice?
+- [ ] "Sulaco", "Nostromo"
+- [ ] "Sulaco", "Nostromo", "Sulaco", "Nostromo"
+- [ ] "Sulaco", "Nostromo", "X-Wing", "TIE Fighter"
+- [ ] "X-Wing", "TIE Fighter", "Sulaco", "Nostromo"
+- [ ] Il risultato è un array vuoto
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
+*********************************
+##### Riposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
+##### Spiegazione 
+Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
+
+### E5. Cosa stampa il seguente codice?
+```swift
+let bigNumber = Int.max
+let biggerNumber = bigNumber + 1
+print(biggerNumber)
+```
+- [ ] -9223372036854775808
+- [ ] 0
+- [ ] 9223372036854775807
+- [ ] Non viene stampato nulla
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
+*********************************
+##### Riposta corretta: Questo codice compila ma va in crash.
+##### Spiegazione. 
+L'aggiunta di 1 al massimo numero intero rappresentabile solleva un overflow.
+
+### E6. Quanti elementi conterrà l'array names alla fine dell'esecuzione del codice?
+```swift
+let names = [String]()
+names.append("Amy")
+names.append("Clara")
+names.append("Rory")
+```
+
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+- [ ] Questo codice compila ma va in crash
+- [ ] Questo codice non compila
+*********************************
+##### Riposta corretta: Questo codice non compila
+##### Spiegazione  
+L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
+
+### E7. Cosa stampa il seguente codice?
 ```swift
 let names = ["Amy", "Rory"]
 
@@ -121,45 +202,7 @@ for name in names {
 ##### Spiegazione  
 name è definito implicitamente come costante (let) non può essere modificato. Per renderlo modificabile bisognerebbe forzarlo come var
 
-### E4. Quanti elementi conterrà l'array names alla fine dell'esecuzione del codice?
-```swift
-let names = [String]()
-names.append("Amy")
-names.append("Clara")
-names.append("Rory")
-```
-
-- [ ] 0
-- [ ] 1
-- [ ] 2
-- [ ] 3
-- [ ] Questo codice compila ma va in crash
-- [ ] Questo codice non compila
-*********************************
-##### Riposta corretta: Questo codice non compila
-##### Spiegazione  
-L'array names è dichiarato come let ovvero come costante. Per renderlo modificabile occorre usare var try to use append() to add strings to it.
- 
-### E5. Cosa conterrà la costante third alla fine dell'esecuzione del codice?
- ```swift
-let first = ["Sulaco", "Nostromo"]
-let second = ["X-Wing", "TIE Fighter"]
-let third = first + second
-```
-
-- [ ] "Sulaco", "Nostromo"
-- [ ] "Sulaco", "Nostromo", "Sulaco", "Nostromo"
-- [ ] "Sulaco", "Nostromo", "X-Wing", "TIE Fighter"
-- [ ] "X-Wing", "TIE Fighter", "Sulaco", "Nostromo"
-- [ ] Il risultato è un array vuoto
-- [ ] Questo codice compila ma va in crash
-- [ ] Questo codice non compila
-*********************************
-##### Riposta corretta: "Sulaco", "Nostromo", "X-Wing", "TIE Fighter".
-##### Spiegazione 
-Gli array in Swift possono essere uniti usando l'operatore +, la sua applicazione comporta il concatenamento del secondo array alla fine del primo
-
-### E6. Cosa stampa il seguente codice?
+### E8. Cosa stampa il seguente codice?
  ```swift
  let i = 3
 
@@ -181,24 +224,6 @@ case 3:
 ##### Riposta corretta: Questo codice non compila
 ##### Spiegazione 
 Swift esige che tutti i casi di uno switch siano dichiarati, alternativamente è possibile utilizzare il case default.
-
-### E7. Cosa stampa il seguente codice?
-```swift
-let bigNumber = Int.max
-let biggerNumber = bigNumber + 1
-print(biggerNumber)
-```
-- [ ] -9223372036854775808
-- [ ] 0
-- [ ] 9223372036854775807
-- [ ] Non viene stampato nulla
-- [ ] Questo codice compila ma va in crash
-- [ ] Questo codice non compila
-*********************************
-##### Riposta corretta: Questo codice compila ma va in crash.
-##### Spiegazione. 
-L'aggiunta di 1 al massimo numero intero rappresentabile solleva un overflow.
-
  
 
 ## INTERMEDIATE
