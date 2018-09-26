@@ -480,12 +480,14 @@ Ci sono 3 cose da capire in questo codice:
 
 ### E7. Descrivi il flusso di esecuzione del seguente pseudo codice in RxSwift
  ```swift
-searchBar.rx.text.orEmpty
+searchBar.rx.text
     .throttle(0.3, scheduler: MainScheduler.instance)
     .flatMap { [spotifyClient] query in
         return spotifyClient.rx.search(query: query)
     }.map { tracks in
         return tracks.map(TrackRenderable.init)
+    }.filter {
+    	$0.timesListened > 1000000
     }.bindTo(tableView.rx.items(cellIdentifier: "TrackCell", cellType: TrackCell.self)) { index, track, cell in
         cell.render(trackRenderable: track)
     }.disposed(by: self.disposeBag)
@@ -494,6 +496,7 @@ searchBar.rx.text.orEmpty
 * vengono ignorate nuove emissioni nell'arco di 0.3 sec dall'ultimo carattere inserito
 * con questa stringa si esegue una ricerca con il client di spotify
 * i risultati vengono deserializzati in un array di oggetti TrackRenderable
+* vengono filtrate solo le canzoni con più di 1000000 ascolti
 * viene effettuato il binding tra i modelli e le celle di una tableview che popolerà i risultati delle canzoni contententi il testo cercato
 * vengono popolate le celle con le varie label o immagini prese dall'oggetto track
 * viene aggiunta la sottoscrizione al disposeBag che si preoccuperà della dispose quando verrà messo a nil (tipicamente quando viene deallocato self)
