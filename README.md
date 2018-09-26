@@ -12,7 +12,7 @@
 * Suspended — L'applicazione è in esecuzione in background e non sta eseguendo alcun codice.  
 
 ### D2. Quali sono le differenze tra frame e bounds?
-Il bounds di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0)
+Il bound di una UIView rappresenta il rettangolo espresso con una posizione (x,y) e le sue dimensioni (width, height) relative al suo sistema di coordinate (0, 0).  
 Il frame di una UIView è allo stesso modo un rettangolo con una posizione e dimensione ma riferito rispetto alle coordinate della superview che lo contiene.
 
 ### D3. Spiegare il pattern MVC
