@@ -323,7 +323,10 @@ Una sequenza rappresenta un insieme di valori che possono essere iterati tramite
 Collection è una Sequence che dove ci si può accedere agli elementi tramite subscript e definisce l'indice di partenza (startIndex) e di fine (endIndex). Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
 Come ultimo punto Collection eredita da Sequence. 
 
-### D3. Spiega MVVM 
+### D3. Cos'è MVVM?
+MVVM sta per Model View ViewModeo, è un pattern architetturale per l'implementazione di interfacce utente
+E' una versione ampliata di MVC dove la presentation logic è estrapolata dal controller e messa nel ViewModel.  
+
 Il Model rappresenta il punto di accesso ai dati. Trattasi di una o più classi che leggono dati dal DB, oppure da un servizio Web di qualsivoglia natura.
 La View rappresenta la vista dell’applicazione, l’interfaccia grafica che mostrerà i dati.
 Il ViewModel è il punto di incontro tra la View e il Model: i dati ricevuti da quest’ultimo sono elaborati per essere presentati e passati alla View. Qui risiede la logica di business dell'app.
@@ -334,6 +337,9 @@ Nel caso di iOS è inevitabile la componente del Controller anche in un'architet
 
 ### D5. Hai esperienza con il TDD/BDD in iOS? Se si, che framework utilizzi?
 Il framework ufficiale per lo unit test è XCTest, importanti alternative specialmente per il BDD sono Kiwi, Quick (e Nimble  che è una mather library per le expectations).
+
+### D6. A cosa serve la keyword defer in Swift?
+Si utilizza defer quando si vuole che un determinato blocco di codice venga eseguito mentre si sta lasciando lo scope corrente (es. dopo una return in una funzione).
 
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ```swift
