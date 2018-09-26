@@ -477,5 +477,17 @@ Ci sono 3 cose da capire in questo codice:
 * enumerated() ritornerà ogni carattere nella stringa invertita con la sua posizione
 * la posizione viene passata nella clausola where e verranno stampati solo i caratteri di posizione pari
  
- 
+
+### E7. Descrivi il flusso di esecuzione del seguente pseudo codice in RxSwift
+'''swift
+searchBar.rx.text.orEmpty
+    .debounce(0.3, scheduler: MainScheduler.instance)
+    .flatMap { [spotifyClient] query in
+        return spotifyClient.rx.search(query: query)
+    }.map { tracks in
+        return tracks.map(TrackRenderable.init)
+    }.bindTo(tableView.rx.items(cellIdentifier: "TrackCell", cellType: TrackCell.self)) { index, track, cell in
+        cell.render(trackRenderable: track)
+    }.addDisposableTo(disposeBag)
+'''
  
