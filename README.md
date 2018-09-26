@@ -43,7 +43,7 @@ Inserendo una chiamata di rete nel viewDidAppear scatenerebbe una richiesta ad o
 Nil non è un oggetto che è possibile inserire in un array o un dizionario in Objective-C. Questo è il motivo per il quale addObject(nil) manda in crash l'applicazione.
 
 ### D9. Per eseguire una ricerca tra un insieme di elementi risulta più veloce un NSArray o un NSSet?
-Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento (complessità O(1) vs O(n)).
+Quando l'ordine degli elementi in una collection non è importante NSSet è molto più performante in quanto i Set utilizzano dei valori di hash per trovare gli elementi (similarmente a un dizionario) mentre un array deve essere iterato finchè non si trova l’elemento desiderato (complessità O(1) vs O(n)).
 
 ### D10. Per fare una richiesta http di rete è preferibile usare URLConnection o URLSession?
 Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in background (mentre l’app non è in esecuzione) e il raggruppamento di varie richieste rendendo più semplice la loro cancellazione relativa ad un determinato lavoro. URLSession prevede una migliore sintassi che utilizza i “blocks”.
