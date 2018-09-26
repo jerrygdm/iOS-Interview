@@ -492,6 +492,7 @@ searchBar.rx.text
         cell.render(trackRenderable: track)
     }.disposed(by: self.disposeBag)
  ``` 
+ ### Risposta
 * ad ogni carattere inserito in una textField viene notificata l'intera stringa
 * vengono ignorate nuove emissioni nell'arco di 0.3 sec dall'ultimo carattere inserito
 * con questa stringa si esegue una ricerca con il client di spotify
