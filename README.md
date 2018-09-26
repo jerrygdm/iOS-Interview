@@ -479,7 +479,7 @@ Ci sono 3 cose da capire in questo codice:
  
 
 ### E7. Descrivi il flusso di esecuzione del seguente pseudo codice in RxSwift
-'''swift
+ ```swift
 searchBar.rx.text.orEmpty
     .debounce(0.3, scheduler: MainScheduler.instance)
     .flatMap { [spotifyClient] query in
@@ -488,6 +488,5 @@ searchBar.rx.text.orEmpty
         return tracks.map(TrackRenderable.init)
     }.bindTo(tableView.rx.items(cellIdentifier: "TrackCell", cellType: TrackCell.self)) { index, track, cell in
         cell.render(trackRenderable: track)
-    }.addDisposableTo(disposeBag)
-'''
- 
+    }.disposed(by: self.disposeBag)
+ ``` 
