@@ -451,7 +451,7 @@ for (key, value) in names.enumerated() {
 ##### Spiegazione  
 Se si iterasse sulle chiavi di un dizionario senza utilizzare enumerated() le chiavi sarebbero Pilot e Doctor e i valori corrispondenti Wash e Simon. Utilizzando enumerated() ritornerà come key l'indice della posizione dell'elemento nel loop e il valore sarà di tipo (String, String).
 
-### E6. Che output produrrà iò seguente codice?
+### E6. Che output produrrà il seguente codice?
  ```swift
 let status = "shiny"
 
