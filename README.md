@@ -306,18 +306,27 @@ Swift esegue il primo blocco che viene "matchato" in uno switch. In questo caso 
 
 ## AVANZATO
 
-### What are differences between Manual and Automatic Reference Counting?
+### Quali sono le differenze tra il Manual e l'Automatic Rerenrence Counting?
+Per gestire manualmente la memoria è necessario conoscere il concetto di Reference Counter e alla proprietà che ogni oggetto possiede: retainCount, questo è un intero che indica il numero di oggetti associati all'oggetto stesso.  
+Se il retainCount di un oggetto arriva a 0 viene deallocato da l'AutoreleasePool.  
+Quando un oggetto viene istanziato con alloc e init il retainCount vale 1, è possibile esplicitare retain e release per far aumentare e diminuire rispettivamente il retainCount.
+Un retainCount errato può portare a leak o crash dell'applicazione.
+Con ARC (gestione automatica della memoria) introdotto da Xcode 4.2 lo sviluppatore non deve più preoccuparsi di invocare esplicitamente retain e release per tenere coerente il valore di retainCount.  
+ARC non è un garbage collector in quanto lavora a compile time e non a run-time.
 
 ### Quali sono le differenze tra Sequence Protocol e Collection Protocol?
 Una sequenza rappresenta un insieme di valori che possono essere iterati tramite un for-loop.
 Collection è una Sequence che dove ci si può accedere agli elementi tramite subscript e definisce l'indice di partenza (startIndex) e di fine (endIndex). Si può accedere più volte ad ogni singolo elemento di una Collection mentre nel caso della Sequence non è più possibile a meno di una nuova iterazione.
 Come ultimo punto Collection eredita da Sequence. 
 
-### Explain MVVM 
-UIKit independent representation of your View and its state. The View Model invokes changes in the Model and updates itself with the updated Model, and since we have a binding between the View and the View Model, the first is updated accordingly.
-Your view model will actually take in your model, and it can format the information that’s going to be displayed on your view.
-There is a more known framework called RxSwift. It contains RxCocoa, which are reactive extensions for Cocoa and CocoaTouch.
+### Spiega MVVM 
+Il Model rappresenta il punto di accesso ai dati. Trattasi di una o più classi che leggono dati dal DB, oppure da un servizio Web di qualsivoglia natura.
+La View rappresenta la vista dell’applicazione, l’interfaccia grafica che mostrerà i dati.
+Il ViewModel è il punto di incontro tra la View e il Model: i dati ricevuti da quest’ultimo sono elaborati per essere presentati e passati alla View. Qui risiede la logica di business dell'app.
+In iOS negli ultimi anni esiste un popolare framework chiamato RxSWift che aggiunge le reactive extension al mondo iOS mentre un altro framework RxCocoa aggiunge tali estensioni al mondo della UI di iOS.
 
+### Nel contesto MVVM un UIViewController a che parte appartiene? Model, View o ViewModel?
+Nel caso di iOS è inevitabile la componente del Controller anche in un'architettura che prevede MVVM. Il controller farà parte comunque del mondo "view". Il controller conoscerà il ViewModel e la View e non viceversa.
 
 ### E1. Quando questo codice viene eseguito, cosa conterrà la costante numbers?
 ```swift
