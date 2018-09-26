@@ -51,10 +51,11 @@ Da iOS 7.0 URLSession è preferito, prevede la funzionalità del download in bac
 ### D11. Perchè dovresti preferire una chiamata http asincrona rispetto alla controparte sincrona? In Swift qual è la sintassi per eseguire un task in modo asincrono?
 Una chiamata asincrona non blocca il thread di UI detto il main thread.  
 In swift si utilizza il seguente codice:
+```swift
 Dispatch.main.async {
 	// codice da eseguire
 }
-
+```
 ### E1. Cosa stampa il seguente codice?
 ```swift
 class Person {
