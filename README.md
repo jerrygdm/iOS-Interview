@@ -307,7 +307,18 @@ if !userLoggedIn! {
 ##### Spiegazione  
 L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
 
-### E3
+### E3. Che differenza c'è tra nil e .None? In che cosa differiscono le seguenti variabili?
+ ```swift
+var optional1: String? = nil
+var optional2: String? = .None
+ ```
+*********************************
+##### Riposta corretta: Nessuna differenza semantica
+##### Spiegazione  
+Optional(.None), in breve .None è il corretto modo per esprimere un opzionale che ha come valore nil.
+nil viene usato come "syntactic sugar" per .None
+ 
+### E4
 ##### 1. Quale delle due pizzerie istanziate produrrà la margherita con il basilico?
  ```swift
 struct Pizza {
@@ -357,12 +368,13 @@ extension Pizzeria {
   }
 }
 ```
+*********************************
 ##### Riposta corretta: Solo lombardis2 farà la margherita con il basilico
 ##### Spiegazione  
 Lombardis1 a runtime invocherà il metodo makeMargherita definito nell'extension che non prevede il basilico.
 
 
-### E4. Che cosa stampa il codice seguente?
+### E5. Che cosa stampa il codice seguente?
 ```swift
  let point = (556, 0)
 switch point {
