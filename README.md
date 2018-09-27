@@ -308,7 +308,7 @@ if !userLoggedIn! {
 L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
 
 ### E3
-# 1. Quale delle due pizzerie istanziate produrrà la margherita con il basilico?
+##### 1. Quale delle due pizzerie istanziate produrrà la margherita con il basilico?
  ```swift
 struct Pizza {
   let ingredients: [String]
@@ -345,7 +345,7 @@ lombardis2.makeMargherita()
 ##### Spiegazione  
 Pizzeria è un protocollo che richiede il metodo makeMargherita, nel codice viene fornita una implementazione di default tramite extension ma l'implementazione concreta (Lombardis) del protocollo è sovrascritta e quindi a runtime viene invocata la corretta implementazione.
 
-# 2. Cosa succede se il protocollo non richiedesse il metodo makeMargherita?
+##### 2. Cosa succede se il protocollo non richiedesse il metodo makeMargherita?
 ```swift
 protocol Pizzeria {
   func makePizza(ingredients: [String]) -> Pizza
