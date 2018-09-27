@@ -307,7 +307,62 @@ if !userLoggedIn! {
 ##### Spiegazione  
 L'espressione !userLoggedIn! significa: force unwrap del bool e negalo. Il booleano è impostato a false quindi la sua negazione viene valutata in true e il risultato è la stampa del primo messaggio.
 
-### E3. Che cosa stampa il codice seguente?
+### E3
+# 1. Quale delle due pizzerie istanziate produrrà la margherita con il basilico?
+ ```swift
+struct Pizza {
+  let ingredients: [String]
+}
+
+protocol Pizzeria {
+  func makePizza(ingredients: [String]) -> Pizza
+  func makeMargherita() -> Pizza
+}
+
+extension Pizzeria {
+  func makeMargherita() -> Pizza {
+    return makePizza(["tomato", "mozzarella"])
+  }
+}
+
+struct Lombardis: Pizzeria {
+  func makePizza(ingredients: [String]) -> Pizza {
+    return Pizza(ingredients: ingredients)
+  }
+  func makeMargherita() -> Pizza {
+    return makePizza(["tomato", "basil", "mozzarella"])
+  }
+}
+
+let lombardis1: Pizzeria = Lombardis()
+let lombardis2: Lombardis = Lombardis()
+
+lombardis1.makeMargherita()
+lombardis2.makeMargherita()
+ ```
+*********************************
+##### Riposta corretta: Tutte e due.
+##### Spiegazione  
+Pizzeria è un protocollo che richiede il metodo makeMargherita, nel codice viene fornita una implementazione di default tramite extension ma l'implementazione concreta (Lombardis) del protocollo è sovrascritta e quindi a runtime viene invocata la corretta implementazione.
+
+# 2. Cosa succede se il protocollo non richiedesse il metodo makeMargherita?
+```swift
+protocol Pizzeria {
+  func makePizza(ingredients: [String]) -> Pizza
+}
+
+extension Pizzeria {
+  func makeMargherita() -> Pizza {
+    return makePizza(["tomato", "mozzarella"])
+  }
+}
+```
+##### Riposta corretta: Solo lombardis2 farà la margherita con il basilico
+##### Spiegazione  
+Lombardis1 a runtime invocherà il metodo makeMargherita definito nell'extension che non prevede il basilico.
+
+
+### E4. Che cosa stampa il codice seguente?
 ```swift
  let point = (556, 0)
 switch point {
