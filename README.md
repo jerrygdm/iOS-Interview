@@ -32,8 +32,10 @@ Quando si dichiara una variabile opzionale, per ottenere il suo valore è necess
 Il force unwrap fa si che si forzi l'unwrap in modo che il valore non sia più opzionale. Il force unwrap è potenzialmente pericoloso perchè nel caso la variabile sia nil il force unwrap lancerà un'eccezione che manderà in crash l'applicazione.
 
 ### D6. Perchè si utilizzano le struct al posto delle classi?
+Le classi supportano l'ereditarietà, cosa non supportata dalle struct.
 Le struct sono di tipo "value type" ovvero una sua copia o il passaggio di parametro avviene per valore mentre nel caso delle classi la copia avviene per "reference" ovvero viene copiato il puntatore.
-Dove usare uno o l'altro dipende dal contesto. Si preferiscono le classi quando copiare o comparare le istanze non ha senso nel contesto corrente.
+Dove usare uno o l'altro dipende dal contesto. Si preferiscono le classi quando copiare o comparare le istanze non ha senso nel contesto corrente.  
+La functional programming predilige i value types quindi sono da preferire le struct mentre la OOP predilige le classi.
 
 ### D7. Qual'è la differenza tra viewDidLoad e viewDidAppear? Nel quale è preferibile inserire una chiamata ad un server remoto in una classica architettura che utilizza il pattern MVC?
 Nel contesto degli UIViewController il ViewDidLoad è il metodo eseguita dal sistema dopo che la view viene caricata in memoria e soprattutto una sola volta. ViewDidAppear viene chiamata ogni volta che la view è appare visibile all'utente.
